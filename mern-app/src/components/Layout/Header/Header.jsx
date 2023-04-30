@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom';
 import { RiDashboardFill, RiLogoutBoxLine, RiMenuFill } from 'react-icons/ri';
 const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const isAuthenticated = false;
+  const isAuthenticated = true;
   const user = {
     role: 'admin',
   };
@@ -35,6 +35,7 @@ const Header = () => {
         rounded={'full'}
         top={'6'}
         left={'6'}
+        zIndex={'overlay'}
       >
         <RiMenuFill />
       </Button>

@@ -20,6 +20,8 @@ export const ColorModeSwitcher = props => {
       {...props}
       position={'absolute'}
       right={'2rem'}
+      zIndex={'overlay'}
+
     />
   );
 };
