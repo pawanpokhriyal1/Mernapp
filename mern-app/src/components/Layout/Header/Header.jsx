@@ -25,7 +25,7 @@ const Header = () => {
     onClose();
   };
   return (
-    <>
+    <div style={{ position: 'sticky', top: '0', zIndex: '1000' }}>
       <ColorModeSwitcher />
       <Button
         onClick={onOpen}
@@ -120,7 +120,7 @@ const Header = () => {
           </DrawerBody>
         </DrawerContent>
       </Drawer>
-    </>
+    </div>
   );
 };
 
