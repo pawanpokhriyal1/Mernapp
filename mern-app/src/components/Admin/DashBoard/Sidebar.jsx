@@ -15,7 +15,7 @@ const Sidebar = () => {
       p={'16'}
       boxShadow={'-2px 0 10px rgba(107,70,193,0.5)'}
       style={{
-        height: '120vh',
+        height: '105%',
         marginTop: '-50px',
       }}
     >
