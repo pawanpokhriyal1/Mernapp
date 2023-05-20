@@ -1,0 +1,20 @@
+{
+  "name": "mern-app-server",
+  "version": "1.0.0",
+  "description": "Backend Code",
+  "type":"module",
+  "main": "server.js",
+  "scripts": {
+    "dev":"nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pawanpokhriyal1/Mernapp.git"
+  },
+  "author": "Pawan Pokhriyal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pawanpokhriyal1/Mernapp/issues"
+  },
+  "homepage": "https://github.com/pawanpokhriyal1/Mernapp#readme"
+}
