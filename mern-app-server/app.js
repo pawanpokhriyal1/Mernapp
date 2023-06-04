@@ -1,5 +1,7 @@
 import express from "express"
 import { config } from "dotenv"
+import { ErrorMiddleWare } from "./middlewares/Error.js"
+
 config({
     path: "./config/config.env"
 })
@@ -13,3 +15,5 @@ app.use("/api/v1", user)
 
 
 export default app
+
+app.use(ErrorMiddleWare)

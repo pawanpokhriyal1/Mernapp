@@ -1,3 +1,11 @@
-export const getAllCourse = (req, res, next) => {
-    res.send("working");
-};
+import { catchAsyncError } from "../middlewares/catchAsyncError.js";
+import { Course } from "../models/Course.js";
+
+
+export const getAllCourse = catchAsyncError(async (req, res, next) => {
+    const courses = await Course.find();
+    res.status(200).json({
+        success: true,
+        courses,
+    });
+})
