@@ -6,6 +6,11 @@ config({
     path: "./config/config.env"
 })
 const app = express()
+// Using MiddleWare
+app.use(express.json());
+app.use(express.urlencoded({
+    extended: true,
+}))
 
 // Importing and using Routes
 import courses from "./routes/courseRoutes.js"
