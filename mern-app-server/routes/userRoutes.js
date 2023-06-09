@@ -1,5 +1,5 @@
 import express from "express"
-import { register, login } from "../controllers/userControllers.js";
+import { register, login, logout } from "../controllers/userControllers.js";
 
 const router = express.Router();
 
@@ -10,6 +10,8 @@ router.route("/register").post(register)
 router.route("/login").post(login)
 
 //logout
+router.route("/logout").get(logout)
+
 //Get my profile
 //ChangePassword
 //UpdatePassword
