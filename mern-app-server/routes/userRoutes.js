@@ -1,5 +1,6 @@
 import express from "express"
-import { register, login, logout } from "../controllers/userControllers.js";
+import { register, login, logout, getMyProfile } from "../controllers/userControllers.js";
+import { isAuthenticated } from "../middlewares/auth.js";
 
 const router = express.Router();
 
@@ -13,6 +14,8 @@ router.route("/login").post(login)
 router.route("/logout").get(logout)
 
 //Get my profile
+router.route("/me").get(isAuthenticated, getMyProfile)
+
 //ChangePassword
 //UpdatePassword
 //UpdateProfile
