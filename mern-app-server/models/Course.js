@@ -17,7 +17,7 @@ const schema = new mongoose.Schema({
         description: { type: String, required: true },
 
         video: {
-            Public_id: { type: String, required: true },
+            Public_id: { type: String },
             url: {
                 type: String,
                 required: true,
