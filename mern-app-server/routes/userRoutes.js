@@ -1,6 +1,6 @@
 import express from "express"
-import { register, login, logout, getMyProfile, changePassword, updateProfile, updateProfilePicture, forgetPassword, resetPassword, addToPlayList, removeFromPlayList } from "../controllers/userControllers.js";
-import { isAuthenticated } from "../middlewares/auth.js";
+import { register, login, logout, getMyProfile, changePassword, updateProfile, updateProfilePicture, forgetPassword, resetPassword, addToPlayList, removeFromPlayList, getAllUsers, updateUserRole, deleteUser, deleteMyProfile } from "../controllers/userControllers.js";
+import { authorizedAdmin, isAuthenticated } from "../middlewares/auth.js";
 import singleUpload from "../middlewares/multer.js";
 
 const router = express.Router();
@@ -16,7 +16,8 @@ router.route("/logout").get(logout)
 
 //Get my profile
 router.route("/me").get(isAuthenticated, getMyProfile)
-
+//Delete my profile
+router.route("/me").delete(isAuthenticated, deleteMyProfile)
 //ChangePassword
 
 router.route("/changepassword").put(isAuthenticated, changePassword);
@@ -35,5 +36,11 @@ router.route("/resetpassword/:token").put(resetPassword);
 router.route("/addtoplaylist").post(isAuthenticated, addToPlayList);
 //RemoveFromPlayList
 router.route("/removefromplaylist").post(isAuthenticated, removeFromPlayList);
+
+//Admin Routes
+
+router.route("/admin/users").get(isAuthenticated, authorizedAdmin, getAllUsers)
+
+router.route("/admin/user/:id").put(isAuthenticated, authorizedAdmin, updateUserRole).delete(isAuthenticated, authorizedAdmin, deleteUser)
 
 export default router;

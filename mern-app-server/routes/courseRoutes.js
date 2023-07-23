@@ -1,7 +1,7 @@
 import express from "express"
 import { addCourseLectures, createCourse, deleteCourse, deleteLecture, getAllCourse, getCourseLectures } from "../controllers/courseController.js";
 import singleUpload from "../middlewares/multer.js";
-import { authorizedAdmin, isAuthenticated } from "../middlewares/auth.js";
+import { authorizedAdmin, authorizedSubscribers, isAuthenticated } from "../middlewares/auth.js";
 
 const router = express.Router();
 //Get All courses without Lectures
@@ -12,7 +12,7 @@ router.route("/createcourse").post(isAuthenticated, authorizedAdmin, singleUploa
 //Add Lecture ,Delete lecture ,Get Course Details
 
 //Get Lectures of particular course
-router.route("/course/:id").get(isAuthenticated, getCourseLectures)
+router.route("/course/:id").get(isAuthenticated, authorizedSubscribers, getCourseLectures)
 
 //Add Lectures to particular Course
 router.route("/course/:id").post(isAuthenticated, authorizedAdmin, singleUpload, addCourseLectures)

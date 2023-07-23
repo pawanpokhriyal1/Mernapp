@@ -7,7 +7,7 @@ import crypto from "crypto"
 const schema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, "Please enter your name"],
+        // required: [true, "Please enter your name"],
     },
     email: {
         type: String,
@@ -31,7 +31,7 @@ const schema = new mongoose.Schema({
         status: String,
     },
     avatar: {
-        Public_id: { type: String, required: true },
+        Public_id: { type: String, },
         url: {
             type: String,
             required: true,
